@@ -1,0 +1,14 @@
+version: 2.1
+
+orbs:
+  pypi: pennlabs/pypi-tools@0.0.3
+
+workflows:
+  build_and_deploy:
+    jobs:
+      - pypi/publish:
+          context: pypi-publish
+          filters:
+            branches:
+              only:
+                - master
