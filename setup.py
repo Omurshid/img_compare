@@ -10,6 +10,9 @@ setup(
         'pandas',
         'Pillow'
     ],
+    author='Osama Murshid',
+    author_email='omurshid@uwaterloo.ca',
+    License='MIT',
     entry_points='''
         [console_scripts]
         img_compare=cli:main

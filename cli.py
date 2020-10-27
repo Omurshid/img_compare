@@ -9,15 +9,12 @@ def score(image1, image2):
     #a simple mean squared err calculations on the images' pixel intensity is used to score similarity
     return np.sum((image1.astype("float") - image2.astype("float")) ** 2) / float(image1.shape[0] * image1.shape[1])
 
-#prompt='CSV path'
 @click.command()
 @click.option('--file', prompt='Input CSV path',
               help='path to csv file')
 @click.option('--output', default=f'{os.getcwd()}/img_compare_{time.strftime("%Y-%m-%d %H-%M-%S")}.csv', help='output csv location')
 def main(output, file):
     df = pd.read_csv(file)
-    # click.echo(df)
-    # rerun
     return_df = pd.DataFrame(columns=['image1', 'image2', 'similar', 'elapsed'])
     for index, row in df.iterrows():
         start_time = time.time()
