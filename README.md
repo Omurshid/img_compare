@@ -16,4 +16,4 @@ Example usage:
 ## Design:
 I chose to make this into a CLI in order to simplify the usage as much as possible and allow for further automation layers.
 This was tested in both Windows and Mac OS environments just ensure to be mindful of file path structure
-when using each system.
+when using each system. The similarity score algo is a basic mean squared err calculation on the images' pixel intensities
