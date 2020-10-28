@@ -19,13 +19,12 @@ def main(output, file):
     for index, row in df.iterrows():
         start_time = time.time()
         similarity = score(np.asarray(Image.open(row['image1']).resize((1280, 720))), np.asarray(Image.open(row['image2']).resize((1280, 720))))
-        r = {
+        return_df = return_df.append({
             'image1': row['image1'],
             'image2': row['image2'],
             'similar': similarity,
             'elapsed': time.time() - start_time
-        }
-        return_df = return_df.append(r, ignore_index=True)
+        }, ignore_index=True)
     click.echo(return_df)
     return_df.to_csv(output, index=False, header=True)
 
